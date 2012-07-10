@@ -88,6 +88,31 @@ class Model_menu extends RedBean_SimpleModel{
 
     }
 
+    function &get_cat_array($iStart){
+        //init
+        $aCategories = array();
+
+        //call DB
+        $catOverview =& $this->get_overview($iStart);
+
+        //for all categpries found
+        foreach ($catOverview as $key => $value) {
+            //create new cat item
+            print "$key => $value->title\n";
+            $aCategory          = array();
+            $aCategory['id']    = $catOverview[$key]->id;
+            $aCategory['title']    = $catOverview[$key]->title;
+
+
+
+        //Add category to categories array
+        $aCategories[] = $aCategory;
+        }
+
+        //print_r($aCategories);
+        return $aCategories;
+
+    }
 
 // maintenance functions
     private function isDouble($val1=null, $val2=null, $val3=null){

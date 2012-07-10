@@ -33,7 +33,7 @@ class Menu extends My_Controller{
 
         //     ));
 
-        $data .= $this->model_menu->get_overview(0);
+        $data .= $this->model_menu->get_cat_array(0);
 
 
         //call view and assign data
