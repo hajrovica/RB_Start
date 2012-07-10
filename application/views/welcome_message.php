@@ -1,3 +1,8 @@
+<?php if (isset($data)):
+	echo $data;
+?>
+
+<?php else: ?>
 
 	<h1>Welcome to CodeIgniter!</h1>
 
@@ -16,3 +21,6 @@
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 
 	<input type="button" class="btn btn-success" value="button test for Twitter Bootstrap">
+
+
+<?php endif ?>
