@@ -9,7 +9,7 @@ class Menu extends My_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('model_menu');
+        $this->load->model('model_menu', 'menu');
     }
 
     function index(){
@@ -33,11 +33,14 @@ class Menu extends My_Controller{
 
         //     ));
 
-        $data .= $this->model_menu->get_cat_array(0);
+        $data1 = array();
+        $data1['data']= $data;
+        $data1['arr_data'] = $arr_data = $this->menu->get_cat_array(0);
 
 
         //call view and assign data
-        $this->view_data['data'] = $data;
+        $this->view_data['data1'] = $data1;
+        $this->view_data['data'] = ' ';
         $this->_outpt('welcome_message');
 
 
@@ -50,22 +53,29 @@ class Menu extends My_Controller{
      **/
     function add()
     {
-        $menu = R::dispense('menu');
-        $menu->title = 'Voce';
-        $menu->parent_id = 0;
-        $menu->link = 'voce';
+        // $menu = R::dispense('menu');
+        // $menu->title = 'Voce';
+        // $menu->parent_id = 0;
+        // $menu->link = 'voce';
 
 
-        try {
-            R::store($menu);
+        // try {
+        //     R::store($menu);
 
-        } catch (Exception $e) {
-            echo $e;
-            die();
-        }
-        echo "<hr>";
-        echo $poruka;
+        // } catch (Exception $e) {
+        //     echo $e;
+        //     die();
+        // }
+        // echo "<hr>";
+        // echo $poruka;
 
+        $arr = array(
+            'title'     => 'Voce',
+            'pid'       =>'0',
+            'link'      =>'voce'
+            );
+
+        $data = $this->menu->add($arr);
 
         $this->view_data['data'] = $data;
         $this->_outpt('welcome_message');
@@ -73,7 +83,7 @@ class Menu extends My_Controller{
     }
 
     function del(){
-        $data .= "<br>".$this->model_menu->delete(38);
+        $data .= "<br>".$this->menu->delete(37);
         $this->view_data['data'] = $data;
         $this->_outpt('welcome_message');
 

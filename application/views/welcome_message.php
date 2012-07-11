@@ -1,5 +1,36 @@
-<?php if (isset($data)):
+<?php
+
+//$this->load->library('Dynamic_menu');
+//echo base_url();
+
+
+if (isset($data)) :
 	echo $data;
+
+	if (isset($data1)){
+			echo "<pre>";
+			print_r($data1['data']);
+			echo "</pre>";
+	}
+
+	if (isset($data1['arr_data'])) {
+			echo "<pre>";
+			print_r($data1['arr_data']);
+			echo "</pre>";
+
+			$this->load->helper('html');
+
+
+			$attributes = array(
+			                    'class' => 'boldlist',
+			                    'id'    => 'mylist'
+			                    );
+
+			echo ul($data1['arr_data'], $attributes);
+	}
+
+
+
 ?>
 
 <?php else: ?>

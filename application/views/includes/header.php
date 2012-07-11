@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <base href="<?php echo base_url();?>" />
 
     <!-- Le styles -->
     <link href="<?php echo base_url('assets/tb/css/bootstrap.css');  ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/menu/menu.css');  ?>" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -27,6 +29,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url(); ?>/assets/tb/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url(); ?>/assets/tb/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url(); ?>/assets/tb/ico/apple-touch-icon-57-precomposed.png">
+
+    <script type="text/javascript"> <![CDATA[
+        var base_url = '<?php echo base_url();?>';
+        ]]></script>
+    </Script>
+
   </head>
 
   <body>
@@ -46,10 +54,17 @@
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
+             <?php
+
+            echo  $this->dynamic_menu->build_menu('1'); ?>
+
+
           </div><!--/.nav-collapse -->
+
         </div>
       </div>
-    </div>
+ </div>
+    <hr style="clear:both">
 
     <div class="container">
 
