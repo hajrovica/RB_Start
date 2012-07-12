@@ -11,11 +11,18 @@ footer
      <?php
      //moved call for GCRUD js files at the end there was a mess when loaded at first place
      //GCRUD JS feature did not worked
-     $js_files = $output->js_files;
+     if (isset($output)) {
+       $js_files = $output->js_files;
+
+     if (!empty($js_files)) {
+
      foreach($js_files as $file): ?>
 
           <script src="<?php echo $file; ?>"></script>
-      <?php endforeach; ?>
+      <?php endforeach;
+            }
+     }
+      ?>
 
   </body>
 </html>

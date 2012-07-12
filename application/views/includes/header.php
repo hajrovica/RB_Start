@@ -38,12 +38,16 @@
     <?php
 
     //point out that js_files and css_files are now objects of output - using layout library
-    $css_files = $output->css_files;
+    if (isset($output)) {
+        $css_files = $output->css_files;
 
-      foreach($css_files as $file): ?>
-          <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+        foreach($css_files as $file): ?>
+            <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
 
-      <?php endforeach; ?>
+        <?php endforeach;
+    }
+
+    ?>
 
 
 

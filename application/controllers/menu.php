@@ -10,41 +10,36 @@ class Menu extends My_Controller{
     {
         parent::__construct();
         $this->load->model('model_menu', 'menu');
+        $this->load->library('grocery_CRUD');
     }
+
 
     function index(){
 
-        //show some data
-        $data = 'Ok here is some data for view!';
-        $data .= "<br>";
-        $data .= anchor('menu/add', 'Add menu');
-        $data .= "<br>";
-        $data .= anchor('menu/list', 'List menu');
+        //ok lets go grocery crud
+        $menu = new grocery_CRUD();
+        $menu->set_table('app_menu');
+        $menu->columns('id', 'title', 'link_type', 'page_id', 'dyn_group_id', 'parent_id', 'is_parent', 'show_menu');
+        $output = $menu->render();
+
+
+        //lets set some view vars
+        //mm maybe to make it function?
+
+        $data = array(
+            'title'=>'System menus',
+            'output'=>$output
+            );
+
+        $views = 'example';
+        $this->my_layout->content($views,  $data);
 
 
 
-
-
-        //$model->dispense();
-        // $data .= "<br>".$this->model_menu->add(array(
-        //     'title'=>'zeleno',
-        //     'pid'=>'1',
-        //     'link'=>'zeleno'
-
-        //     ));
-
-        $data1 = array();
-        $data1['data']= $data;
-        $data1['arr_data'] = $arr_data = $this->menu->get_cat_array(0);
-
-
-        //call view and assign data
-        $this->view_data['data1'] = $data1;
-        $this->view_data['data'] = ' ';
-        $this->_outpt('welcome_message');
 
 
     }
+
     /**
      * undocumented function
      *
@@ -92,7 +87,39 @@ class Menu extends My_Controller{
 
 
 
+    function index_old(){
 
+        //show some data
+        $data = 'Ok here is some data for view!';
+        $data .= "<br>";
+        $data .= anchor('menu/add', 'Add menu');
+        $data .= "<br>";
+        $data .= anchor('menu/list', 'List menu');
+
+
+
+
+
+        //$model->dispense();
+        // $data .= "<br>".$this->model_menu->add(array(
+        //     'title'=>'zeleno',
+        //     'pid'=>'1',
+        //     'link'=>'zeleno'
+
+        //     ));
+
+        $data1 = array();
+        $data1['data']= $data;
+        $data1['arr_data'] = $arr_data = $this->menu->get_cat_array(0);
+
+
+        //call view and assign data
+        $this->view_data['data1'] = $data1;
+        $this->view_data['data'] = ' ';
+        $this->_outpt('welcome_message');
+
+
+    }
 
 
 }

@@ -95,7 +95,7 @@ class dynamic_menu {
                     {
                     // CodeIgniter's anchor(uri segments, text, attributes) tag.
 
-$html_out .= "\t\t\t".'<li>'.anchor($url.' '.$this->class_parent, '<span>'.$title.'</span>', 'name="'.$title.'" id="'.$id.'" target="'.$target.'"');
+$html_out .= "\t\t\t".'<li>'.anchor($url, '<span>'.$title.'</span>', 'name="'.$title.'" id="'.$id.'" target="'.$target.'"');
 
                     }
                     else

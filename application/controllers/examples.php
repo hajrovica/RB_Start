@@ -177,6 +177,7 @@ class Examples extends My_Controller {
 		//make array and give to it required values
 		$data = array(
 			'title'=>$title,
+			'data'=>'DAAAAATTTTTAAAAAA',
 			'output'=>$output
 			);
 		//this effectivly will pass output inside output container  so $output
