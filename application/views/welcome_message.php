@@ -1,8 +1,6 @@
 <?php
 
-//$this->load->library('Dynamic_menu');
-//echo base_url();
-echo $output;
+
 
 if (isset($data)) :
 	echo $data;

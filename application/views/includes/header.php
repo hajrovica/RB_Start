@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title><?php echo $title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -37,14 +37,14 @@
 
     <?php
 
+    //point out that js_files and css_files are now objects of output - using layout library
+    $css_files = $output->css_files;
+
       foreach($css_files as $file): ?>
           <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
 
       <?php endforeach; ?>
-      <?php foreach($js_files as $file): ?>
 
-          <script src="<?php echo $file; ?>"></script>
-      <?php endforeach; ?>
 
 
   </head>
