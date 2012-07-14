@@ -17,10 +17,10 @@ class Menu extends My_Controller{
     function index(){
 
         //ok lets go grocery crud
-        $menu = new grocery_CRUD();
-        $menu->set_table('app_menu');
-        $menu->columns('id', 'title', 'link_type', 'page_id', 'dyn_group_id', 'parent_id', 'is_parent', 'show_menu');
-        $output = $menu->render();
+        // $menu = new grocery_CRUD();
+        // $menu->set_table('app_menu');
+        // $menu->columns('id', 'title', 'link_type', 'page_id', 'dyn_group_id', 'parent_id', 'is_parent', 'show_menu');
+        // $output = $menu->render();
 
 
         //lets set some view vars

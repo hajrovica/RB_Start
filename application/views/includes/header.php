@@ -72,7 +72,7 @@
             </ul>
              <?php
 
-            echo  $this->dynamic_menu->build_menu('1'); ?>
+            //echo  $this->dynamic_menu->build_menu('1'); ?>
 
 
           </div><!--/.nav-collapse -->
